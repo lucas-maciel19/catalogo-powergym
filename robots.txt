@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lucas-maciel19.github.io/catalogo-web-tesis/sitemap.xml

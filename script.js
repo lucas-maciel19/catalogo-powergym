@@ -3,13 +3,13 @@ const ALIAS_PAGO = "6.806.534";
 let productosGlobal = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Configurar enlace del Header de WhatsApp
+    // 1. Enlace Header WhatsApp
     const btnHeaderWS = document.getElementById("btn-whatsapp-header");
     if (btnHeaderWS) {
         btnHeaderWS.href = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent("Hola! Vengo desde el catálogo web del gimnasio y quisiera más información.")}`;
     }
 
-    // 2. Cargar y renderizar los productos desde productos.json
+    // 2. Cargar Productos JSON
     fetch('productos.json')
         .then(response => {
             if (!response.ok) throw new Error("No se pudo cargar productos.json");
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-    // 3. Asistente IA Fitness Completo
+    // 3. Asistente IA Coach CBUM
     const btnIaToggle = document.getElementById("btn-ia-toggle");
     const btnIaClose = document.getElementById("btn-ia-close");
     const modalIa = document.getElementById("modal-ia");
@@ -42,60 +42,57 @@ document.addEventListener("DOMContentLoaded", () => {
         function responderIA(mensajeUsuario) {
             const m = mensajeUsuario.toLowerCase().trim();
 
-            // Detección de Rutinas y Entrenamiento
-            if (m.includes("rutina") || m.includes("rutinas") || m.includes("entreno") || m.includes("ejercicio")) {
-                return "💪 Rutinas & Entrenamiento:\n• Todos nuestros planes incluyen evaluación física inicial y rutina personalizada adaptada a tu objetivo (Hipertrofia, Pérdida de grasa o Fuerza).\n• También contamos con servicio de Personal Trainer 1 a 1.";
+            if (m.includes("creatina")) {
+                return "⚡ Creatina Monohidratada:\n• La creatina ayuda a aumentar la fuerza explosiva, hidratación muscular y recuperación entre series.\n• Dosis recomendada: 3g a 5g diarios todos los días (incluso días de descanso).\n• Tenemos disponible Creatina Monohidratada 300g por Gs. 180.000.";
+            }
+            if (m.includes("proteina") || m.includes("proteína") || m.includes("whey")) {
+                return "🥤 Whey Protein (Proteína de Suero):\n• Ideal para consumir post-entrenamiento o completar tus requerimientos diarios de proteína.\n• Ayuda a reparar las fibras musculares y ganar masa limpia.\n• Tenemos disponible Whey Protein 100% Pure por Gs. 220.000.";
+            }
+            if (m.includes("suplemento") || m.includes("suplementos") || m.includes("tomar") || m.includes("conviene")) {
+                return "🔥 Recomendación de Suplementos:\n• Para fuerza y volumen: **Creatina Monohidratada** (Gs. 180.000).\n• Para recuperación y ganar músculo: **Whey Protein** (Gs. 220.000).\n• Podés combinar ambos para mejores resultados. ¿Cuál es tu objetivo actual?";
             }
 
-            // Detección de Ver Planes / Precios
+            if (m.includes("volumen") || m.includes("masa") || m.includes("aumentar")) {
+                return "💪 Para Aumentar Masa Muscular (Volumen):\n1️⃣ Mantené un superávit calórico ligero (consumí más calorías de las que gastás).\n2️⃣ Entrená pesado cerca del fallo en rangos de 6 a 12 repeticiones.\n3️⃣ Consumí suficiente proteína (1.8g a 2.2g por kg de peso).\n• Probá nuestra Calculadora de Macros en el menú principal.";
+            }
+            if (m.includes("definir") || m.includes("definicion") || m.includes("bajar") || m.includes("grasa") || m.includes("peso")) {
+                return "🔥 Para Definición y Pérdida de Grasa:\n1️⃣ Mantené un déficit calórico controlado.\n2️⃣ No reduzcas el peso en los entrenamientos para preservar masa muscular.\n3️⃣ Consumí al menos 2g de proteína por kg para evitar perder músculo.";
+            }
+
+            if (m.includes("rutina") || m.includes("rutinas") || m.includes("entreno") || m.includes("ejercicio")) {
+                return "💪 Rutinas & Entrenamiento:\n• Todos nuestros planes incluyen evaluación física inicial y rutina personalizada adaptada a tu objetivo (Hipertrofia, Pérdida de grasa o Fuerza).\n• También contamos con servicio de Personal Trainer 1 a 1 (Gs. 350.000/mes).";
+            }
+
             if (m.includes("ver planes") || m.includes("plan") || m.includes("planes") || m.includes("precio") || m.includes("cuanto cuesta") || m.includes("costo")) {
                 return "🔥 Nuestros Planes Disponibles:\n1️⃣ Membresía Mensual — Gs. 150.000\n2️⃣ Plan Quincenal — Gs. 90.000\n3️⃣ Pase Diario — Gs. 20.000\n\nEscribí un número del 1 al 3 para ver los detalles completos de cada opción.";
             }
 
-            // Detección por Opciones 1-6
-            if (m === "1" || m.includes("opcion 1") || m.includes("opción 1")) {
-                return "🔥 Membresía Mensual Gym:\n• Inversión: Gs. 150.000\n• Beneficios: Acceso ilimitado a musculación y cardio de Lunes a Sábados.\n\n¡Hacé clic en 'Consultar' para activar tu pase por WhatsApp!";
-            }
-            if (m === "2" || m.includes("opcion 2") || m.includes("opción 2")) {
-                return "🏋️‍♂️ Plan Quincenal:\n• Inversión: Gs. 90.000\n• Beneficios: 15 días continuos con rutina personalizada de adaptación.";
-            }
-            if (m === "3" || m.includes("opcion 3") || m.includes("opción 3")) {
-                return "🎟️ Pase Diario / Day Pass:\n• Inversión: Gs. 20.000\n• Beneficios: Acceso total por un día completo sin compromisos.";
-            }
-            if (m === "4" || m.includes("opcion 4") || m.includes("opción 4")) {
-                return "🥤 Suplemento Proteico Whey:\n• Inversión: Gs. 220.000\n• Uso: Recuperación muscular acelerada post-entreno.";
-            }
-            if (m === "5" || m.includes("opcion 5") || m.includes("opción 5")) {
-                return "⚡ Creatina Monohidratada 300g:\n• Inversión: Gs. 180.000\n• Beneficios: Aumento directo de fuerza y potencia.";
-            }
-            if (m === "6" || m.includes("opcion 6") || m.includes("opción 6")) {
-                return "👤 Personal Trainer (Mes):\n• Inversión: Gs. 350.000\n• Beneficios: Acompañamiento 1 a 1 enfocado 100% en tus metas.";
-            }
+            if (m === "1" || m.includes("opcion 1")) return "🔥 Membresía Mensual Gym:\n• Inversión: Gs. 150.000\n• Acceso ilimitado a musculación y cardio de Lunes a Sábados.";
+            if (m === "2" || m.includes("opcion 2")) return "🏋️‍♂️ Plan Quincenal:\n• Inversión: Gs. 90.000\n• 15 días continuos con rutina personalizada de adaptación.";
+            if (m === "3" || m.includes("opcion 3")) return "🎟️ Pase Diario / Day Pass:\n• Inversión: Gs. 20.000\n• Acceso total por un día completo sin compromisos.";
 
-            // Detección de Pagos con Alias y Botón Interactivo para Copiar
-            if (m.includes("pago") || m.includes("pagos") || m.includes("tarjeta") || m.includes("transferencia") || m.includes("giro") || m.includes("alias") || m.includes("cedula")) {
+            if (m.includes("pago") || m.includes("pagos") || m.includes("transferencia") || m.includes("giro") || m.includes("alias") || m.includes("cedula")) {
                 return `💳 Medios de Pago Aceptados:\nAceptamos Transferencias Bancarias, Giros y Efectivo.\n\n📌 Alias / Cédula para Transferencias:\n👉 <strong class="text-yellow-400 font-bold">${ALIAS_PAGO}</strong>\n\n<button onclick="copiarAlias('${ALIAS_PAGO}', this)" class="mt-2 bg-yellow-400 hover:bg-yellow-300 text-slate-950 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1 shadow">📋 Copiar Alias ${ALIAS_PAGO}</button>`;
             }
 
-            // Respuestas generales
-            if (m.includes("horario") || m.includes("horarios") || m.includes("hora") || m.includes("abren")) {
-                return "🕒 Horarios de Atención:\n• Lunes a Viernes: 06:00 a 21:00 hs (Horario corrido)\n• Sábados: 08:00 a 18:00 hs\n• Domingo: Cerrado.";
+            if (m.includes("horario") || m.includes("horarios") || m.includes("hora") || m.includes("abren") || m.includes("domingo") || m.includes("domingos")) {
+                return "🕒 Horarios de Atención:\n• Lunes a Viernes: 06:00 a 21:00 hs (Horario corrido)\n• Sábados: 08:00 a 18:00 hs\n• Domingos: Cerrado (Día de descanso muscular 😴)";
             }
             if (m.includes("donde") || m.includes("ubicacion") || m.includes("direccion")) {
-                return "📍 Ubicación: Estamos ubicados en el centro de la ciudad. Tocá el botón de WhatsApp para enviarte la ubicación exacta.";
-            }
-            if (m.includes("hola") || m.includes("buenas") || m.includes("saludos")) {
-                return "¡Hola fiera!  Soy Coach CBUM IA. Escribime qué plan o producto buscás o enviá un número del 1 al 6.";
+                return "📍 Ubicación: Estamos ubicados en el centro de la ciudad. Tocá el botón de WhatsApp para enviarte la ubicación exacta por GPS.";
             }
 
-            return "¡Excelente consulta! Para más detalles o confirmación de cupos, escribinos directo por WhatsApp con el botón superior. 🚀";
+            if (m.includes("hola") || m.includes("buenas") || m.includes("saludos") || m.includes("que tal")) {
+                return "¡Hola fiera!  Soy Coach CBUM IA. Preguntame sobre entrenamientos, suplementos (Creatina/Whey), dietas, horarios o métodos de pago.";
+            }
+
+            return `¡Excelente consulta! Como tu **Coach CBUM IA**, te sugiero revisar las opciones de suplementación y planes en el catálogo o escribirnos directo a WhatsApp para asesoría personalizada. 🚀`;
         }
 
         function enviarMensaje(textoPersonalizado = null) {
             const texto = textoPersonalizado || iaInput.value.trim();
             if (!texto) return;
 
-            // Mensaje del Usuario
             chatBox.innerHTML += `
                 <div class="bg-yellow-400 text-slate-950 font-semibold p-3 rounded-2xl rounded-tr-none max-w-[85%] ml-auto text-xs shadow">
                     ${texto}
@@ -104,17 +101,15 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!textoPersonalizado) iaInput.value = "";
             chatBox.scrollTop = chatBox.scrollHeight;
 
-            // Indicador "Escribiendo..."
             const typingId = "typing-" + Date.now();
             chatBox.innerHTML += `
-                <div id="${typingId}" class="bg-slate-800 border border-slate-700 text-yellow-400 p-3 rounded-2xl rounded-tl-none max-w-[48%] text-xs flex items-center gap-1.5">
+                <div id="${typingId}" class="bg-slate-800 border border-slate-700 text-yellow-400 p-3 rounded-2xl rounded-tl-none max-w-[50%] text-xs flex items-center gap-1.5">
                     <span class="animate-pulse">Coach CBUM escribiendo</span>
                     <span class="animate-bounce">...</span>
                 </div>
             `;
             chatBox.scrollTop = chatBox.scrollHeight;
 
-            // Respuesta con Delay simulado
             setTimeout(() => {
                 const typingElem = document.getElementById(typingId);
                 if (typingElem) typingElem.remove();
@@ -145,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Función Global para Copiar Alias
+// Copiar Alias
 function copiarAlias(texto, btnElement) {
     navigator.clipboard.writeText(texto).then(() => {
         const originalText = btnElement.innerHTML;
@@ -155,27 +150,32 @@ function copiarAlias(texto, btnElement) {
             btnElement.innerHTML = originalText;
             btnElement.classList.replace("bg-emerald-400", "bg-yellow-400");
         }, 2000);
-    }).catch(err => {
-        console.error("Error al copiar:", err);
     });
 }
 
-// Función de Renderizado de Productos
+// Renderizar Productos
 function renderizarProductos(lista) {
     const contenedor = document.getElementById("contenedor-productos");
     if (!contenedor) return;
 
-    contenedor.innerHTML = lista.map(prod => {
+    contenedor.innerHTML = lista.map((prod, index) => {
         const mensajeWS = encodeURIComponent(`Hola PowerGym! Quisiera consultar sobre el producto/plan: ${prod.nombre} (${prod.precio})`);
         const urlWS = `https://wa.me/${NUMERO_WHATSAPP}?text=${mensajeWS}`;
+        const tagTexto = prod.tag || "POPULAR";
+        const ratingTexto = prod.rating || "5.0 ★";
 
         return `
-            <div class="gym-card rounded-2xl overflow-hidden flex flex-col justify-between transition duration-300">
+            <div class="gym-card rounded-2xl overflow-hidden flex flex-col justify-between transition duration-300 fade-in-up" style="animation-delay: ${index * 0.1}s">
                 <div>
                     <div class="relative h-48 overflow-hidden">
                         <img src="${prod.imagen}" alt="${prod.nombre}" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                        <span class="absolute top-3 right-3 bg-yellow-400 text-slate-950 font-black text-[11px] px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                            Popular
+                        
+                        <span class="absolute top-3 right-3 bg-yellow-400 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider shadow">
+                            ${tagTexto}
+                        </span>
+
+                        <span class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-md text-yellow-400 font-bold text-[10px] px-2.5 py-1 rounded-full shadow border border-slate-700">
+                            ${ratingTexto}
                         </span>
                     </div>
                     <div class="p-5">
@@ -199,7 +199,7 @@ function renderizarProductos(lista) {
     }).join('');
 }
 
-// Función para Filtrar Productos en Pestañas
+// Filtrar Productos
 function filtrarProductos(categoria) {
     document.querySelectorAll(".btn-filtro").forEach(btn => {
         btn.classList.remove("bg-yellow-400", "text-slate-950");
@@ -214,5 +214,98 @@ function filtrarProductos(categoria) {
         renderizarProductos(productosGlobal.slice(0, 3));
     } else if (categoria === 'suplementos') {
         renderizarProductos(productosGlobal.slice(3, 6));
+    }
+}
+
+// Modal Calculadora de Macronutrientes Avanzada
+function toggleModalCalculadora() {
+    const modal = document.getElementById("modal-calculadora");
+    if (modal) modal.classList.toggle("hidden");
+}
+
+function calcularProteina() {
+    const edad = parseFloat(document.getElementById("calc-edad").value);
+    const sexo = document.getElementById("calc-sexo").value;
+    const peso = parseFloat(document.getElementById("calc-peso").value);
+    const altura = parseFloat(document.getElementById("calc-altura").value);
+    const grasa = parseFloat(document.getElementById("calc-grasa").value);
+    const objetivo = document.getElementById("calc-objetivo").value;
+    const resultadoDiv = document.getElementById("calc-resultado");
+
+    if (!peso || peso <= 0 || !altura || altura <= 0 || !edad || edad <= 0) {
+        resultadoDiv.classList.remove("hidden");
+        resultadoDiv.innerHTML = `<p class="text-red-400 font-bold">Por favor, completá los campos de Peso, Altura y Edad correctamente.</p>`;
+        return;
+    }
+
+    let bmr = 0;
+
+    if (grasa && grasa > 0 && grasa < 60) {
+        const masaMagra = peso * (1 - (grasa / 100));
+        bmr = 370 + (21.6 * masaMagra);
+    } else {
+        if (sexo === "hombre") {
+            bmr = (10 * peso) + (6.25 * altura) - (5 * edad) + 5;
+        } else {
+            bmr = (10 * peso) + (6.25 * altura) - (5 * edad) - 161;
+        }
+    }
+
+    let tdee = bmr * 1.45;
+    let factorProteina = 2.0;
+
+    if (objetivo === "hipertrofia") {
+        tdee += 350;
+        factorProteina = 2.0;
+    } else if (objetivo === "definicion") {
+        tdee -= 450;
+        factorProteina = 2.2;
+    } else {
+        factorProteina = 1.8;
+    }
+
+    const caloriasFinales = Math.round(tdee);
+    const proteinaGramos = Math.round(peso * factorProteina);
+    const grasasGramos = Math.round(peso * 0.9);
+    
+    const caloriasProteinaGrasa = (proteinaGramos * 4) + (grasasGramos * 9);
+    const carbohidratosGramos = Math.max(50, Math.round((caloriasFinales - caloriasProteinaGrasa) / 4));
+
+    resultadoDiv.classList.remove("hidden");
+    resultadoDiv.innerHTML = `
+        <div class="space-y-1 border-b border-slate-800 pb-2 mb-2">
+            <span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider">Meta Diaria Personalizada</span>
+            <p class="text-2xl font-black text-yellow-400">${caloriasFinales} <span class="text-xs font-normal text-slate-300">kcal / día</span></p>
+            <p class="text-[10px] text-slate-500">Tasa Metabólica Basal (BMR): ${Math.round(bmr)} kcal</p>
+        </div>
+        <div class="grid grid-cols-3 gap-2 text-center">
+            <div class="bg-slate-900 border border-slate-800 p-2 rounded-lg">
+                <span class="block text-[10px] text-slate-400 font-bold">Proteínas</span>
+                <span class="text-sm font-black text-emerald-400">${proteinaGramos}g</span>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-2 rounded-lg">
+                <span class="block text-[10px] text-slate-400 font-bold">Carbos</span>
+                <span class="text-sm font-black text-yellow-400">${carbohidratosGramos}g</span>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-2 rounded-lg">
+                <span class="block text-[10px] text-slate-400 font-bold">Grasas</span>
+                <span class="text-sm font-black text-amber-500">${grasasGramos}g</span>
+            </div>
+        </div>
+        <p class="text-[11px] text-slate-400 mt-2">💡 Podés cubrir tu cuota de proteína diaria con <strong>Whey Protein</strong> de nuestro catálogo o consultar a <strong>Coach CBUM IA</strong>.</p>
+    `;
+}
+
+// Compartir Enlace Público
+function compartirCatalogo() {
+    const urlPublica = "https://lucas-maciel19.github.io/catalogo-web-tesis/";
+    const texto = "¡Mirá el catálogo oficial de PowerGym con planes, suplementos y Coach IA en vivo! 🔥";
+    
+    if (navigator.share) {
+        navigator.share({ title: 'PowerGym', text: texto, url: urlPublica });
+    } else {
+        navigator.clipboard.writeText(urlPublica).then(() => {
+            alert("¡Enlace público copiado al portapapeles! 🚀\n" + urlPublica);
+        });
     }
 }

@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerGym - Catálogo de Membresías & Suplementos</title>
+    <title>PowerGym - Catálogo de Membresías, Suplementos & Coach IA</title>
     
-    <!-- SEO y Meta Tags para Redes Sociales/WhatsApp -->
-    <meta name="description" content="Catálogo web oficial de PowerGym. Consultá planes de membresía, pases diarios, suplementación y asesoría virtual con Coach CBUM IA.">
+    <!-- SEO y Meta Tags para Redes Sociales y Google -->
+    <meta name="description" content="Catálogo web oficial de PowerGym. Consultá precios de membresías, rutinas, suplementos y asesorate en vivo con Coach CBUM IA.">
+    <meta name="keywords" content="PowerGym, gimnasio, gym, membresia, suplementos, creatina, whey protein, entrenamiento">
+    <meta name="robots" content="index, follow">
     <meta name="author" content="Lucas Maciel">
-    <meta property="og:title" content="PowerGym - Catálogo Web & Coach IA">
+    
+    <!-- Open Graph (WhatsApp / Facebook) -->
+    <meta property="og:title" content="PowerGym - Catálogo Web & Coach CBUM IA">
     <meta property="og:description" content="Elegí tu plan de entrenamiento o suplemento y consultá de inmediato por WhatsApp.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80">
     <meta property="og:url" content="https://lucas-maciel19.github.io/catalogo-web-tesis/">
@@ -19,7 +23,7 @@
     <!-- Iconos Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans flex flex-col min-h-screen">
+<body class="bg-slate-950 text-slate-100 font-sans flex flex-col min-h-screen relative overflow-x-hidden">
 
     <!-- Header Gym Dark -->
     <header class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40">
@@ -28,39 +32,78 @@
                 <i data-lucide="dumbbell" class="w-8 h-8 text-yellow-400"></i>
                 <h1 class="text-2xl font-black uppercase tracking-wider text-white">POWER<span class="text-yellow-400">GYM</span></h1>
             </div>
-            <a id="btn-whatsapp-header" href="#" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs uppercase tracking-wider py-2.5 px-5 rounded-full flex items-center gap-2 transition duration-300 shadow-lg shadow-emerald-500/20">
-                <i data-lucide="message-square" class="w-4 h-4"></i>
-                <span>WhatsApp Directo</span>
-            </a>
+            
+            <div class="flex items-center gap-2">
+                <!-- Botón Compartir -->
+                <button id="btn-compartir" onclick="compartirCatalogo()" class="bg-slate-800 hover:bg-slate-700 text-yellow-400 border border-slate-700 font-bold text-xs p-2.5 rounded-full flex items-center justify-center transition" title="Compartir Catálogo">
+                    <i data-lucide="share-2" class="w-4 h-4"></i>
+                </button>
+                
+                <!-- Botón WhatsApp Directo -->
+                <a id="btn-whatsapp-header" href="#" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs uppercase tracking-wider py-2.5 px-4 sm:px-5 rounded-full flex items-center gap-2 transition duration-300 shadow-lg shadow-emerald-500/20">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    <span class="hidden sm:inline">WhatsApp Directo</span>
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Hero / Presentación Fitness -->
-    <section class="relative bg-gradient-to-r from-slate-950 via-slate-900 to-amber-950/40 text-white py-14 px-4 text-center border-b border-slate-800">
+    <section class="relative bg-gradient-to-r from-slate-950 via-slate-900 to-amber-950/40 text-white py-12 px-4 text-center border-b border-slate-800">
         <div class="max-w-3xl mx-auto space-y-4">
-            <span class="bg-yellow-400/10 text-yellow-400 border border-yellow-400/30 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+            <span class="bg-yellow-400/10 text-yellow-400 border border-yellow-400/30 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full inline-block">
                 Transformá Tu Cuerpo Hoy
             </span>
-            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight">Catálogo de <span class="text-yellow-400">Membresías & Suplementos</span></h2>
-            <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto">Elegí tu plan de entrenamiento o suplementación. Consultá de inmediato por WhatsApp o resolvé tus dudas con nuestro Asistente IA Fitness.</p>
+            <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight">Catálogo de <span class="text-yellow-400">Membresías & Suplementos</span></h2>
+            <p class="text-slate-400 text-xs md:text-sm max-w-2xl mx-auto">Elegí tu plan de entrenamiento o suplementación. Consultá de inmediato por WhatsApp o resolvé tus dudas con nuestro Asistente IA Fitness.</p>
+        </div>
+    </section>
+
+    <!-- Banner de Beneficios de la Membresía -->
+    <section class="bg-slate-900/60 border-b border-slate-800 py-4 px-4">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-xs">
+            <div class="flex items-center justify-center gap-2 text-slate-300">
+                <i data-lucide="shield-check" class="w-4 h-4 text-yellow-400"></i>
+                <span>Evaluación Física Incluida</span>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-slate-300">
+                <i data-lucide="zap" class="w-4 h-4 text-yellow-400"></i>
+                <span>Planes Adaptados</span>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-slate-300">
+                <i data-lucide="award" class="w-4 h-4 text-yellow-400"></i>
+                <span>Asesoría con IA 24/7</span>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-slate-300">
+                <i data-lucide="credit-card" class="w-4 h-4 text-yellow-400"></i>
+                <span>Pago Fáciles por Alias</span>
+            </div>
         </div>
     </section>
 
     <!-- Contenedor Dinámico de Productos con Filtros -->
     <main class="max-w-6xl mx-auto px-4 py-10 flex-grow w-full">
         
-        <!-- Barrita de Estado En Vivo & Filtros de Categoría -->
+        <!-- Barrita de Estado En Vivo, Calculadora & Filtros -->
         <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
-            <!-- Badge En Vivo -->
-            <div class="flex items-center gap-2 bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-full text-xs">
-                <span class="relative flex h-2.5 w-2.5">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-                <span class="text-slate-300 font-medium">Gimnasio Abierto • Aforo: <span class="text-yellow-400 font-bold">Normal</span></span>
+            <!-- Badge En Vivo & Calculadora -->
+            <div class="flex flex-wrap items-center gap-2">
+                <div class="flex items-center gap-2 bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-full text-xs">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span class="text-slate-300 font-medium">Gimnasio Abierto • Aforo: <span class="text-yellow-400 font-bold">Normal</span></span>
+                </div>
+
+                <!-- Botón Calculadora Nutricional -->
+                <button onclick="toggleModalCalculadora()" class="bg-yellow-400/10 hover:bg-yellow-400/20 text-yellow-400 border border-yellow-400/30 font-bold text-xs px-3 py-2 rounded-full flex items-center gap-1.5 transition">
+                    <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+                    <span>Calculadora Macros</span>
+                </button>
             </div>
 
-            <!-- Botones de Filtro por Categoria -->
+            <!-- Botones de Filtro por Categoría -->
             <div class="flex gap-1.5 bg-slate-900 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
                 <button onclick="filtrarProductos('todos')" class="btn-filtro px-4 py-2 rounded-lg bg-yellow-400 text-slate-950 transition">Todos</button>
                 <button onclick="filtrarProductos('planes')" class="btn-filtro px-4 py-2 rounded-lg text-slate-400 hover:text-white transition">Planes</button>
@@ -72,14 +115,98 @@
         <div id="contenedor-productos" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Carga dinámica con JS -->
         </div>
+
+        <!-- Sección de Testimonios / Opiniones -->
+        <section class="mt-20 pt-10 border-t border-slate-800">
+            <div class="text-center mb-8">
+                <span class="text-yellow-400 text-xs font-bold uppercase tracking-widest">Comunidad PowerGym</span>
+                <h3 class="text-2xl font-black uppercase text-white mt-1">Opiniones de Nuestros Socios</h3>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
+                    <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                    <p class="text-slate-300 text-xs leading-relaxed">"Las máquinas están impecables y la atención por WhatsApp fue híper rápida. Activé mi pase mensual en 5 minutos."</p>
+                    <div class="text-[11px] font-bold text-slate-400">— Mateo R. <span class="text-slate-600">(Socio Activo)</span></div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
+                    <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                    <p class="text-slate-300 text-xs leading-relaxed">"El Coach CBUM IA en la web me ayudó a elegir la Creatina ideal para mi rutina. ¡Un espectáculo la atención!"</p>
+                    <div class="text-[11px] font-bold text-slate-400">— Camila B. <span class="text-slate-600">(Atleta Fitness)</span></div>
+                </div>
+                <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
+                    <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                    <p class="text-slate-300 text-xs leading-relaxed">"Excelente ambiente para entrenar pesado. Poder pagar directo por alias bancario facilitó todo."</p>
+                    <div class="text-[11px] font-bold text-slate-400">— Javier M. <span class="text-slate-600">(Musculación)</span></div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Modal Calculadora Nutricional Avanzada -->
+    <div id="modal-calculadora" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-yellow-400/30 rounded-2xl w-full max-w-md p-6 space-y-4 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="toggleModalCalculadora()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold">&times;</button>
+            <div class="flex items-center gap-2 text-yellow-400">
+                <i data-lucide="calculator" class="w-6 h-6"></i>
+                <h3 class="font-black text-lg uppercase text-white">Calculadora Nutricional Avanzada</h3>
+            </div>
+            <p class="text-slate-400 text-xs">Ingresá tus datos antropométricos para calcular tu Tasa Metabólica Basal y requerimiento exacto de Macros.</p>
+
+            <div class="space-y-3 text-xs">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-slate-300 mb-1 font-semibold">Edad (Años):</label>
+                        <input type="number" id="calc-edad" placeholder="Ej: 22" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-yellow-400">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 mb-1 font-semibold">Sexo Biológico:</label>
+                        <select id="calc-sexo" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-yellow-400">
+                            <option value="hombre">Hombre</option>
+                            <option value="mujer">Mujer</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-slate-300 mb-1 font-semibold">Peso (kg):</label>
+                        <input type="number" id="calc-peso" placeholder="Ej: 75" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-yellow-400">
+                    </div>
+                    <div>
+                        <label class="block text-slate-300 mb-1 font-semibold">Altura (cm):</label>
+                        <input type="number" id="calc-altura" placeholder="Ej: 178" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-yellow-400">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-slate-300 mb-1 font-semibold">Grasa Corporal % (Opcional):</label>
+                    <input type="number" id="calc-grasa" placeholder="Ej: 15 (dejar en blanco si no sabés)" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-yellow-400">
+                </div>
+
+                <div>
+                    <label class="block text-slate-300 mb-1 font-semibold">Objetivo Principal:</label>
+                    <select id="calc-objetivo" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-white focus:outline-none focus:border-yellow-400">
+                        <option value="hipertrofia">Aumento de Masa Muscular (+15% Kcal)</option>
+                        <option value="definicion">Definición / Pérdida de Grasa (-20% Kcal)</option>
+                        <option value="mantenimiento">Mantenimiento y Salud General</option>
+                    </select>
+                </div>
+
+                <button onclick="calcularProteina()" class="w-full bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black py-3 rounded-xl uppercase tracking-wider transition">Calcular Plan de Macros</button>
+            </div>
+
+            <div id="calc-resultado" class="hidden bg-slate-950 border border-slate-800 p-4 rounded-xl text-xs space-y-2">
+                <!-- Se llena con JS -->
+            </div>
+        </div>
+    </div>
 
     <!-- Botón Flotante IA -->
     <button id="btn-ia-toggle" class="btn-ia-glow fixed bottom-6 right-6 bg-yellow-400 hover:bg-yellow-300 text-slate-950 p-4 rounded-full shadow-2xl z-50 flex items-center justify-center font-bold">
         <i data-lucide="bot" class="w-7 h-7"></i>
     </button>
 
-    <!-- Modal del Coach Bot IA -->
+    <!-- Modal del Coach CBUM IA -->
     <div id="modal-ia" class="hidden fixed bottom-20 right-6 w-96 max-w-[92vw] bg-slate-900 rounded-2xl shadow-2xl border border-yellow-400/30 z-50 flex flex-col overflow-hidden">
         <div class="bg-gradient-to-r from-slate-900 to-yellow-900/50 border-b border-slate-800 text-white p-4 flex justify-between items-center">
             <div class="flex items-center gap-2.5">

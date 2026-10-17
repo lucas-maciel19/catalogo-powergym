@@ -2,43 +2,61 @@
   {
     "id": 1,
     "nombre": "Membresía Mensual Gym",
+    "categoria": "planes",
+    "tag": "MÁS POPULAR",
+    "rating": "4.9 ★",
     "precio": "Gs. 150.000",
-    "descripcion": "Acceso ilimitado a todas las máquinas y área de pesas de lunes a sábado.",
-    "imagen": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80"
+    "descripcion": "Acceso ilimitado a musculación, área de peso libre y cardio de Lunes a Sábados con evaluación inicial.",
+    "imagen": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80"
   },
   {
     "id": 2,
     "nombre": "Plan Quincenal",
+    "categoria": "planes",
+    "tag": "FLEXIBLE",
+    "rating": "4.8 ★",
     "precio": "Gs. 90.000",
-    "descripcion": "Entrenamiento por 15 días continuos con rutina personalizada inicial.",
-    "imagen": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&q=80"
+    "descripcion": "Entrenamiento por 15 días continuos con rutina personalizada inicial ideal para viajeros o pruebas.",
+    "imagen": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80"
   },
   {
     "id": 3,
     "nombre": "Pase Diario / Day Pass",
+    "categoria": "planes",
+    "tag": "EXPRESS",
+    "rating": "5.0 ★",
     "precio": "Gs. 20.000",
-    "descripcion": "Acceso libre por un día completo para entrenar cuando quieras.",
-    "imagen": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=500&q=80"
+    "descripcion": "Acceso libre por un día completo para entrenar cuando quieras sin ningún tipo de compromiso.",
+    "imagen": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&q=80"
   },
   {
     "id": 4,
-    "nombre": "Suplemento Proteico / Whey",
+    "nombre": "Whey Protein 100% Pure",
+    "categoria": "suplementos",
+    "tag": "RECOMENDADO",
+    "rating": "4.9 ★",
     "precio": "Gs. 220.000",
-    "descripcion": "Proteína de suero de leche ideal para recuperación muscular post-entreno.",
-    "imagen": "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=500&q=80"
+    "descripcion": "Proteína aislada de máxima pureza para recuperación acelerada y ganancia de masa muscular limpia.",
+    "imagen": "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=600&q=80"
   },
   {
     "id": 5,
     "nombre": "Creatina Monohidratada 300g",
+    "categoria": "suplementos",
+    "tag": "TOP VENTAS",
+    "rating": "5.0 ★",
     "precio": "Gs. 180.000",
-    "descripcion": "Aumenta la fuerza, potencia y rendimiento en tus entrenamientos pesados.",
-    "imagen": "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=500&q=80"
+    "descripcion": "Creatina micronizada pura para aumento directo de fuerza explosiva, resistencia y volumen muscular.",
+    "imagen": "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80"
   },
   {
     "id": 6,
     "nombre": "Personal Trainer (Mes)",
+    "categoria": "suplementos",
+    "tag": "1 EN 1",
+    "rating": "5.0 ★",
     "precio": "Gs. 350.000",
-    "descripcion": "Acompañamiento 1 a 1 enfocado en tus objetivos personales.",
-    "imagen": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80"
+    "descripcion": "Acompañamiento 1 a 1 en sala con diseño de rutina, técnica guiada y plan nutricional adaptado.",
+    "imagen": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80"
   }
 ]
