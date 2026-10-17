@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nombre": "Membresía Mensual Gym",
+    "precio": "Gs. 150.000",
+    "descripcion": "Acceso ilimitado a todas las máquinas y área de pesas de lunes a sábado.",
+    "imagen": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80"
+  },
+  {
+    "id": 2,
+    "nombre": "Plan Quincenal",
+    "precio": "Gs. 90.000",
+    "descripcion": "Entrenamiento por 15 días continuos con rutina personalizada inicial.",
+    "imagen": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500&q=80"
+  },
+  {
+    "id": 3,
+    "nombre": "Pase Diario / Day Pass",
+    "precio": "Gs. 20.000",
+    "descripcion": "Acceso libre por un día completo para entrenar cuando quieras.",
+    "imagen": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=500&q=80"
+  },
+  {
+    "id": 4,
+    "nombre": "Suplemento Proteico / Whey",
+    "precio": "Gs. 220.000",
+    "descripcion": "Proteína de suero de leche ideal para recuperación muscular post-entreno.",
+    "imagen": "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=500&q=80"
+  },
+  {
+    "id": 5,
+    "nombre": "Creatina Monohidratada 300g",
+    "precio": "Gs. 180.000",
+    "descripcion": "Aumenta la fuerza, potencia y rendimiento en tus entrenamientos pesados.",
+    "imagen": "https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=500&q=80"
+  },
+  {
+    "id": 6,
+    "nombre": "Personal Trainer (Mes)",
+    "precio": "Gs. 350.000",
+    "descripcion": "Acompañamiento 1 a 1 enfocado en tus objetivos personales.",
+    "imagen": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&q=80"
+  }
+]

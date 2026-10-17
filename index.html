@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym & Fitness Catalog - Tesis</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans flex flex-col min-h-screen">
+
+    <!-- Header Gym Dark -->
+    <header class="bg-slate-900/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i data-lucide="dumbbell" class="w-8 h-8 text-yellow-400"></i>
+                <h1 class="text-2xl font-black uppercase tracking-wider text-white">POWER<span class="text-yellow-400">GYM</span></h1>
+            </div>
+            <a id="btn-whatsapp-header" href="#" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black text-xs uppercase tracking-wider py-2.5 px-5 rounded-full flex items-center gap-2 transition duration-300 shadow-lg shadow-emerald-500/20">
+                <i data-lucide="message-square" class="w-4 h-4"></i>
+                <span>WhatsApp Directo</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero / Presentación Fitness -->
+    <section class="relative bg-gradient-to-r from-slate-950 via-slate-900 to-amber-950/40 text-white py-14 px-4 text-center border-b border-slate-800">
+        <div class="max-w-3xl mx-auto space-y-4">
+            <span class="bg-yellow-400/10 text-yellow-400 border border-yellow-400/30 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                Transformá Tu Cuerpo Hoy
+            </span>
+            <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight">Catálogo de <span class="text-yellow-400">Membresías & Suplementos</span></h2>
+            <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto">Elegí tu plan de entrenamiento o suplementación. Consultá de inmediato por WhatsApp o resolvé tus dudas con nuestro Asistente IA Fitness.</p>
+        </div>
+    </section>
+
+    <!-- Contenedor Dinámico de Productos -->
+    <main class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
+        <div id="contenedor-productos" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Carga dinámica con JS -->
+        </div>
+    </main>
+
+    <!-- Botón Flotante IA -->
+    <button id="btn-ia-toggle" class="btn-ia-glow fixed bottom-6 right-6 bg-yellow-400 hover:bg-yellow-300 text-slate-950 p-4 rounded-full shadow-2xl z-50 flex items-center justify-center font-bold">
+        <i data-lucide="bot" class="w-7 h-7"></i>
+    </button>
+
+    <!-- Modal del Coach Bot IA -->
+    <div id="modal-ia" class="hidden fixed bottom-20 right-6 w-96 max-w-[92vw] bg-slate-900 rounded-2xl shadow-2xl border border-yellow-400/30 z-50 flex flex-col overflow-hidden">
+        <div class="bg-gradient-to-r from-slate-900 to-yellow-900/50 border-b border-slate-800 text-white p-4 flex justify-between items-center">
+            <div class="flex items-center gap-2.5">
+                <div class="bg-yellow-400 p-1.5 rounded-lg text-slate-950">
+                    <i data-lucide="bot" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-sm text-yellow-400">Coach Bot IA ⚡</h3>
+                    <p class="text-[10px] text-slate-400">Asesor de Entrenamiento & Ventas</p>
+                </div>
+            </div>
+            <button id="btn-ia-close" class="text-slate-400 hover:text-white text-xl font-bold">&times;</button>
+        </div>
+
+        <!-- Botones de Acceso Rápido -->
+        <div class="bg-slate-950/80 px-3 py-2 border-b border-slate-800 flex gap-1.5 overflow-x-auto text-[11px] text-slate-300">
+            <button class="chip-pregunta bg-slate-800 hover:bg-yellow-400/20 hover:text-yellow-400 px-2.5 py-1 rounded-full whitespace-nowrap transition border border-slate-700">💪 Rutinas</button>
+            <button class="chip-pregunta bg-slate-800 hover:bg-yellow-400/20 hover:text-yellow-400 px-2.5 py-1 rounded-full whitespace-nowrap transition border border-slate-700">💳 Formas de pago</button>
+            <button class="chip-pregunta bg-slate-800 hover:bg-yellow-400/20 hover:text-yellow-400 px-2.5 py-1 rounded-full whitespace-nowrap transition border border-slate-700">🕒 Horarios</button>
+            <button class="chip-pregunta bg-slate-800 hover:bg-yellow-400/20 hover:text-yellow-400 px-2.5 py-1 rounded-full whitespace-nowrap transition border border-slate-700">🔥 Ver Planes</button>
+        </div>
+
+        <!-- Chat Box -->
+        <div id="chat-box" class="p-4 h-72 overflow-y-auto space-y-3 bg-slate-950/50 text-xs">
+            <div class="bg-slate-800 border border-slate-700 text-slate-200 p-3 rounded-2xl rounded-tl-none max-w-[88%] leading-relaxed shadow-sm">
+                ¡Hola, fiera! 👋 Soy tu <strong>Coach Virtual</strong>. Puedo ayudarte con precios, recomendaciones de suplementos, planes de entrenamiento, horarios o cualquier duda que tengas. ¿En qué te puedo asesorar?
+            </div>
+        </div>
+
+        <!-- Input de Texto -->
+        <div class="p-3 border-t border-slate-800 flex gap-2 bg-slate-900">
+            <input type="text" id="ia-input" placeholder="Preguntale al Coach IA..." class="flex-grow px-3.5 py-2.5 bg-slate-950 border border-slate-700 text-slate-100 rounded-xl text-xs focus:outline-none focus:border-yellow-400 placeholder-slate-500">
+            <button id="ia-send" class="bg-yellow-400 hover:bg-yellow-300 text-slate-950 px-4 py-2.5 rounded-xl text-xs font-black transition uppercase tracking-wider flex items-center justify-center">
+                <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-500 text-center py-6 text-xs mt-auto">
+        <p>&copy; 2026 PowerGym Catálogo Web — Proyecto de Tesis TGU</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
