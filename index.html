@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym & Fitness Catalog - Tesis</title>
+    <title>PowerGym - Catálogo de Membresías & Suplementos</title>
+    
+    <!-- SEO y Meta Tags para Redes Sociales/WhatsApp -->
+    <meta name="description" content="Catálogo web oficial de PowerGym. Consultá planes de membresía, pases diarios, suplementación y asesoría virtual con Coach CBUM IA.">
+    <meta name="author" content="Lucas Maciel">
+    <meta property="og:title" content="PowerGym - Catálogo Web & Coach IA">
+    <meta property="og:description" content="Elegí tu plan de entrenamiento o suplemento y consultá de inmediato por WhatsApp.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80">
+    <meta property="og:url" content="https://lucas-maciel19.github.io/catalogo-web-tesis/">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
@@ -37,8 +46,29 @@
         </div>
     </section>
 
-    <!-- Contenedor Dinámico de Productos -->
-    <main class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
+    <!-- Contenedor Dinámico de Productos con Filtros -->
+    <main class="max-w-6xl mx-auto px-4 py-10 flex-grow w-full">
+        
+        <!-- Barrita de Estado En Vivo & Filtros de Categoría -->
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+            <!-- Badge En Vivo -->
+            <div class="flex items-center gap-2 bg-slate-900/90 border border-slate-800 px-4 py-2 rounded-full text-xs">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span class="text-slate-300 font-medium">Gimnasio Abierto • Aforo: <span class="text-yellow-400 font-bold">Normal</span></span>
+            </div>
+
+            <!-- Botones de Filtro por Categoria -->
+            <div class="flex gap-1.5 bg-slate-900 p-1.5 rounded-xl border border-slate-800 text-xs font-semibold">
+                <button onclick="filtrarProductos('todos')" class="btn-filtro px-4 py-2 rounded-lg bg-yellow-400 text-slate-950 transition">Todos</button>
+                <button onclick="filtrarProductos('planes')" class="btn-filtro px-4 py-2 rounded-lg text-slate-400 hover:text-white transition">Planes</button>
+                <button onclick="filtrarProductos('suplementos')" class="btn-filtro px-4 py-2 rounded-lg text-slate-400 hover:text-white transition">Suplementos & Extra</button>
+            </div>
+        </div>
+
+        <!-- Grilla de Tarjetas -->
         <div id="contenedor-productos" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Carga dinámica con JS -->
         </div>
@@ -57,7 +87,7 @@
                     <i data-lucide="bot" class="w-5 h-5"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold text-sm text-yellow-400">Coach Bot IA ⚡</h3>
+                    <h3 class="font-bold text-sm text-yellow-400">Coach CBUM IA ⚡</h3>
                     <p class="text-[10px] text-slate-400">Asesor de Entrenamiento & Ventas</p>
                 </div>
             </div>
@@ -75,7 +105,7 @@
         <!-- Chat Box -->
         <div id="chat-box" class="p-4 h-72 overflow-y-auto space-y-3 bg-slate-950/50 text-xs">
             <div class="bg-slate-800 border border-slate-700 text-slate-200 p-3 rounded-2xl rounded-tl-none max-w-[88%] leading-relaxed shadow-sm">
-                ¡Hola, fiera! 👋 Soy tu <strong>Coach Virtual</strong>. Puedo ayudarte con precios, recomendaciones de suplementos, planes de entrenamiento, horarios o cualquier duda que tengas. ¿En qué te puedo asesorar?
+                ¡Hola, fiera!  Soy tu <strong>Coach CBUM Virtual</strong>. Puedo ayudarte con precios, recomendaciones de suplementos, planes de entrenamiento, formas de pago (Alias), horarios o cualquier duda que tengas. ¿En qué te puedo asesorar?
             </div>
         </div>
 
